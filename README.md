@@ -7,8 +7,8 @@
 Paste commands below (Docker and Docker-Compose are required to be installed on host machine)
 
 ```sh
-git clone https://github.com/Artem-Riakhovskii/devops-school-docker-1.git && \
-cd devops-school-docker-1 && \
+git clone https://github.com/Artem-Riakhovskii/devops-school-docker.git && \
+cd devops-school-docker && \
 chmod +x hw.sh && \
 . hw.sh
 ```
