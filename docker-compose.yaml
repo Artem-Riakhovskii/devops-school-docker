@@ -1,0 +1,39 @@
+version: '3.7'
+services:
+        nginx-snake:
+                image: nginx-snake:latest
+                mem_limit: 512m
+                mem_reservation: 128m
+                cpus: 0.5
+                ports:
+                        - "8080:8080"
+                volumes:
+                        - ./static:/etc/nginx/html/
+                networks:
+                        - nginx-snake-net
+        apache-snake:
+                image: apache-snake:latest
+                mem_limit: 512m
+                mem_reservation: 128m
+                cpus: 0.5
+                ports:
+                        - "8081:8081"
+                volumes:
+                        - ./static:/usr/local/apache2/htdocs
+                networks:
+                        - apache-snake-net
+networks:
+        nginx-snake-net:
+                driver: bridge
+                ipam:
+                        driver: default
+                        config:
+                                - subnet: 172.16.230.0/24
+                                  gateway: 172.16.230.1
+        apache-snake-net:
+                driver: bridge
+                ipam:
+                        driver: default
+                        config:
+                                - subnet: 172.16.231.0/24
+                                  gateway: 172.16.231.1
